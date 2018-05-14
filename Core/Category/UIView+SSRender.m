@@ -158,6 +158,9 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
     if (style[@"adjustTextFont"]) { self.adjustsFontSizeToFitWidth = [style[@"adjustTextFont"] floatValue];}
     if (style[@"text"])           { self.text                      = style[@"text"];}
     if (style[@"textColor"])      { self.textColor                 = [UIColor ss_colorWithString:style[@"textColor"]];}
+    if (style[@"numberOfLines"]) {
+        self.numberOfLines = [style[@"numberOfLines"] floatValue];
+    }
     
     NSString *align = style[@"align"];
     if (align) {

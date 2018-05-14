@@ -313,6 +313,17 @@ todo={
                         "adjustTextFont":1,
                     }
                 },
+                {
+                    "id":"redDeleteLabel",
+                    "type":"Label",
+                    "style":{
+                        "position":"`{{13,30},{${UI.screenW/2-13},20}}`",
+                        "fontSize":14,
+                        "textColor":"rgb(255,0,0)",
+                        "adjustTextFont":1,
+                    }
+                },
+
             ],
             "clickItem":"${(index)=>{$props.selectedIndex=index;$dispatch('removeToDo')}}",
             "dataArray":[
@@ -321,11 +332,11 @@ todo={
                         {
                             "viewId":"nameLabel",
                             "style":{
-                                "text":"apple",
+                                "text":"apple22",
                             },
                         },
                         {
-                            "viewId":"deleteLabel",
+                            "viewId":"redDeleteLabel",
                             "style":{
                                 "text":"tap to delete",
                             },
@@ -459,7 +470,7 @@ newApi = {
             "clickItem":"${(index)=>{$props.runFuncs(index)}}",
             "itemStyle":{
                 "separatorDirection":"bottom",
-                "separatorColor":"rgb(220,220,220)",
+                "separatorColor":"rgb(255,255,255)",
             },
             "item":[
                 {
@@ -537,6 +548,133 @@ newApi = {
     }
 }
 
+askList = {
+    "controller": {
+        "title": '问大家列表页',
+    },
+    "lifeCircle":{
+        "viewDidMount":"${()=>{$dispatch('fetchAskData')}}",
+    },
+    "components": [
+        {
+            "id": 'askList',
+            "type": 'ListView',
+            "style":{
+                "position":"`{{0,0},{${UI.screenW},${UI.screenH-64}}}`",
+                "itemSize":"`{${UI.screenW},120}`",
+                "itemVMarign":0,
+                "scrollDirection":"vertical",
+                "backgroundColor":"rgb(255,255,255)",
+            },
+             "item":[
+                {
+                    "id":"askIcon",
+                    "type":"ImageView",
+                    "style":{
+                        "position":"`{{0,22},{22,22}}`",
+                    }
+                },
+                {
+                    "id":"askTitle",
+                    "type":"Label",
+                    "style":{
+                        "position":"`{{22,18},{${UI.screenW-40},22}}`",
+                        "fontSize":18,
+                        "textColor":"rgb(20,20,20)",
+                    }
+                },
+                {
+                    "id":"askContent",
+                    "type":"Label",
+                    "style":{
+                        "position": "`{{22,45},{${UI.screenW-40},44}}`",
+                        "fontSize":15,
+                        "textColor":"#666666",
+                    }
+                },
+                {
+                    "id": "askAnswerNumber",
+                    "type":"Label",
+                    "style":{
+                        "position": "`{{22, 100},{40,10}}`",
+                        "fontSize":12,
+                        "textColor":"#999999",
+                    }
+                },
+                {
+                    "id": "askAnswerTime",
+                    "type":"Label",
+                    "style":{
+                        "position": "`{{${UI.screenW-60}, 100},{60,10}}`",
+                        "fontSize":12,
+                        "textColor":"#999999",
+                    }
+                },
+            ],
+            "dataArray":[
+                {
+                    "subStyles":[
+                        
+                    ]
+                },
+            ]
+
+        },
+    ],
+    "actions":{
+        "fetchAskData":{
+            "viewId":"listbox",
+            "URLRequest":{
+                "type":"GET",
+                "url":"http://127.0.0.1:9000/askList.json",
+                "check":"${(json)=>{return json.errorCode == '710000';}}",
+                "failure":"${(desc)=>{UI.alert('信息获取失败啦啦',desc)}}",
+                "extractData":"${(json)=>{return json.data.list;}}",
+                "itemToStyleTemplate":{
+                    "subStyles":[
+                        {
+                            "viewId":"askIcon",
+                            "style":{
+                                "image": "http://on0hv7n2x.bkt.clouddn.com/ask/icon_ask_ask.png",
+                            }
+                        },
+                        {
+                            "viewId":"askTitle",
+                            "style":{
+                                "text":"`${item.questionContent}`",
+                                "numberOfLines":0,
+                            },
+                        },
+                        {
+                            "viewId":"askContent",
+                            "style":{
+                                "text":"`${item.answerContent}`",
+                                "numberOfLines":0,
+                            },
+                        },
+                        {
+                            "viewId":"askAnswerNumber",
+                            "style":{
+                                "text": "6回答",
+                            }
+                        },
+                        {
+                            "viewId":"askAnswerTime",
+                            "style":{
+                                "text": "2小时前",
+                            }
+                        }
+                    ]
+                },
+                "render":"${(data)=>{$getView('askList').setDataArray([]).addDatas(data).reloadData()}}",
+            },
+        },
+    },
+    "props":{
+        
+    }
+}
+
 @app.route('/')
 def hello_world():
     return 'JSON render Hello World!'
@@ -556,6 +694,10 @@ def get_todo():
 @app.route('/newApi', methods=['GET'])
 def get_newApi():
     return jsonify(newApi)
+
+@app.route('/askList', methods=['GET'])
+def get_askList():
+    return jsonify(askList)
 
 if __name__ == '__main__':
     app.run()

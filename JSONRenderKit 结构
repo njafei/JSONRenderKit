@@ -1,0 +1,44 @@
+JSONRenderKit
+
+
+SSBaseRenderController 承载页面
+SSJSONRequest json来源
+
+SSJSContext js上下文
+
+
+JSON 内容：
+
+controller: {//配置页面的title等
+	
+}
+
+components: {//组件
+	id,
+	type,
+	style
+}
+
+props： {参数
+	
+}
+
+actions: {
+	
+}
+
+
+有问题的地方：
+
+	分拆出来server和其他服务
+
+	Label等组件 属性还不够全面
+
+	动态加载，或者模拟器提供快捷键，而不是像现在关掉服务再重启
+
+	//全部用frame计算, 尤其是涉及到多行或者高度计算，会比较头疼
+
+	//请求数据的问题
+
+	//只用safari目前的方法debug还不够方便，想办法搞成RN的chrome形式
+

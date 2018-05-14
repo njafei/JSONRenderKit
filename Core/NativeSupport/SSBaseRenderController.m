@@ -24,6 +24,7 @@ SSBaseRenderController *_currentRenderController = nil;
 @interface SSBaseRenderController ()
 @property(nonatomic ,strong) NSDictionary *config;
 @property(nonatomic ,strong ,readwrite) UIActivityIndicatorView *indicatorView;
+@property(nonatomic, strong) UIButton *reloadButton;
 
 @end
 
@@ -74,6 +75,7 @@ SSBaseRenderController *_currentRenderController = nil;
 -(void)didReceiveRenderJSON:(NSDictionary *)json{
     UIView *wrapperView  = [self.jsContext renderWithJSON:json];
     [self.view addSubview:wrapperView];
+    [self.view bringSubviewToFront:self.reloadButton];
     [self.view bringSubviewToFront:self.indicatorView];
     self.config  = json[@"controller"];
     [self.jsContext evaluateScript:@"controller.viewDidMount()"];
@@ -130,6 +132,10 @@ SSBaseRenderController *_currentRenderController = nil;
     [self.view endEditing:YES];
 }
 
+- (void)reloadJson{
+    [self startRender];
+}
+
 #pragma mark - setter
 -(void)setConfig:(NSDictionary *)config
 {
@@ -160,6 +166,20 @@ SSBaseRenderController *_currentRenderController = nil;
         [self.view addSubview:_indicatorView];
     }
     return _indicatorView;
+}
+
+- (UIButton *)reloadButton
+{
+    if (!_reloadButton){
+        _reloadButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 80, 10, 40, 40)];
+        _reloadButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        _reloadButton.layer.cornerRadius = 20;
+        [_reloadButton setTitle:@"reload" forState:UIControlStateNormal];
+        [_reloadButton setBackgroundColor:[UIColor greenColor]];
+        [_reloadButton addTarget:self action:@selector(reloadJson) forControlEvents:UIControlEventTouchDown];
+        [self.view addSubview:_reloadButton];
+    }
+    return _reloadButton;
 }
 
 #pragma mark -

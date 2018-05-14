@@ -47,6 +47,9 @@
     else if (indexPath.row==3) {
         request.url=@"http://127.0.0.1:5000/newApi";
     }
+    else if (indexPath.row == 4){
+        request.url=@"http://127.0.0.1:5000/askList";
+    }
     [self.navigationController pushViewController:obj animated:YES];
 }
 @end
