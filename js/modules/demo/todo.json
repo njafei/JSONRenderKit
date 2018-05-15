@@ -42,7 +42,7 @@
             "item":[
                 {
                     "id":"nameLabel",
-                    "type":"Label",
+                    "type":"Text",
                     "style":{
                         "position":"`{{13,8},{${UI.screenW/2-13},20}}`",
                         "fontSize":18,
@@ -52,7 +52,7 @@
                 },
                 {
                     "id":"deleteLabel",
-                    "type":"Label",
+                    "type":"Text",
                     "style":{
                         "position":"`{{13,30},{${UI.screenW/2-13},20}}`",
                         "fontSize":14,
@@ -62,7 +62,7 @@
                 },
                 {
                     "id":"redDeleteLabel",
-                    "type":"Label",
+                    "type":"Text",
                     "style":{
                         "position":"`{{13,30},{${UI.screenW/2-13},20}}`",
                         "fontSize":14,

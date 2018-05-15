@@ -145,7 +145,7 @@ class ScrollView extends View {
     }
 }
 
-class Label extends View {
+class Text extends View {
     constructor() {
         super();
         this.ocClsName = 'UILabel';

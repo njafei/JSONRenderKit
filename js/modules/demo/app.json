@@ -53,7 +53,7 @@
         	"item":[
         		{
         			"id":"appname",
-        			"type":"Label",
+        			"type":"Text",
         			"style":{
         				"position":"`{{0,60},{${UI.screenW/3},30}}`",
         				"text":"标签",

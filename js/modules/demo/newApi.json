@@ -78,7 +78,7 @@
             "item":[
                 {
                     "id":"toolLabel",
-                    "type":"Label",
+                    "type":"Text",
                     "style":{
                         "position":"`{{14,8},{${UI.screenW-14},40}}`",
                         "fontSize":18,

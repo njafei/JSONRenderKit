@@ -26,6 +26,7 @@
 		9BF92AC71F09E14600E838CD /* UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF92AC61F09E14600E838CD /* UI.m */; };
 		9BF92AD31F09EEE500E838CD /* SSListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF92ACE1F09EEE500E838CD /* SSListView.m */; };
 		9BF92AD41F09EEE500E838CD /* SSListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF92AD01F09EEE500E838CD /* SSListViewCell.m */; };
+		A5BB722A20AAAFFE00BBA269 /* UILabel+SSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BB722920AAAFFE00BBA269 /* UILabel+SSRender.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		9BF92ACE1F09EEE500E838CD /* SSListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSListView.m; sourceTree = "<group>"; };
 		9BF92ACF1F09EEE500E838CD /* SSListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSListViewCell.h; sourceTree = "<group>"; };
 		9BF92AD01F09EEE500E838CD /* SSListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSListViewCell.m; sourceTree = "<group>"; };
+		A5BB722820AAAFFE00BBA269 /* UILabel+SSRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+SSRender.h"; sourceTree = "<group>"; };
+		A5BB722920AAAFFE00BBA269 /* UILabel+SSRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SSRender.m"; sourceTree = "<group>"; };
 		BD2ED334C2508258A1FE4041 /* Pods-JSONRenderKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONRenderKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSONRenderKit/Pods-JSONRenderKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +162,8 @@
 				9BF92AA61F09D16500E838CD /* NSObject+SSRender.m */,
 				9BF92ABF1F09D4D600E838CD /* UIView+SSRender.h */,
 				9BF92AC01F09D4D600E838CD /* UIView+SSRender.m */,
+				A5BB722820AAAFFE00BBA269 /* UILabel+SSRender.h */,
+				A5BB722920AAAFFE00BBA269 /* UILabel+SSRender.m */,
 				9BF92AA91F09D16500E838CD /* UIColor+SSRender.h */,
 				9BF92AAA1F09D16500E838CD /* UIColor+SSRender.m */,
 			);
@@ -346,6 +351,7 @@
 				9BEE41C11F30CAFF00721C1B /* UIView+SSeparator.m in Sources */,
 				9BF92A781F09CCCA00E838CD /* AppDelegate.m in Sources */,
 				9BF92AD31F09EEE500E838CD /* SSListView.m in Sources */,
+				A5BB722A20AAAFFE00BBA269 /* UILabel+SSRender.m in Sources */,
 				9BF92AD41F09EEE500E838CD /* SSListViewCell.m in Sources */,
 				9BF92AC11F09D4D600E838CD /* UIView+SSRender.m in Sources */,
 				9BF92A751F09CCCA00E838CD /* main.m in Sources */,

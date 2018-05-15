@@ -75,6 +75,7 @@ SSBaseRenderController *_currentRenderController = nil;
 -(void)didReceiveRenderJSON:(NSDictionary *)json{
     UIView *wrapperView  = [self.jsContext renderWithJSON:json];
     [self.view addSubview:wrapperView];
+    [self.view addSubview:self.reloadButton];
     [self.view bringSubviewToFront:self.reloadButton];
     [self.view bringSubviewToFront:self.indicatorView];
     self.config  = json[@"controller"];
@@ -133,6 +134,8 @@ SSBaseRenderController *_currentRenderController = nil;
 }
 
 - (void)reloadJson{
+    [[self.view subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
     [self startRender];
 }
 
@@ -177,7 +180,6 @@ SSBaseRenderController *_currentRenderController = nil;
         [_reloadButton setTitle:@"Reload" forState:UIControlStateNormal];
         [_reloadButton setBackgroundColor:[UIColor ss_colorWithString:@"#2cbb47"]];
         [_reloadButton addTarget:self action:@selector(reloadJson) forControlEvents:UIControlEventTouchDown];
-        [self.view addSubview:_reloadButton];
     }
     return _reloadButton;
 }

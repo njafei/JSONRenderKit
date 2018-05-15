@@ -47,7 +47,6 @@ py脚本推荐使用`sublime`打开，搜索`sublime` 的Python build，并配�
 [下载这个Demo](https://github.com/cx478815108/JSONRenderKit/archive/master.zip) 将 `JSONRenderKit` 里面的 `Core` 文件夹拖入Xcode.
 暂时不支持CocoaPods安装
 
-
 ## 联系我
 
 [XiongChen](mailto:feelings0811@wutnews.net) -> feelings0811@wutnews.net

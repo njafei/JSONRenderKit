@@ -25,14 +25,20 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
 +(instancetype)ss_viewWithComponentDic:(NSDictionary *)dic
 {
     NSString *cls = dic[@"type"];
-    if ([cls isEqualToString:@"ListView"]) { cls = @"SSListView";}
-    else if (![cls hasPrefix:@"UI"])       { cls = [NSString stringWithFormat:@"UI%@",cls];}
+    if ([cls isEqualToString:@"ListView"]) {
+        cls = @"SSListView";
+    } else if ([cls isEqualToString:@"Text"]){
+        cls = @"UILabel";
+    }
+    else {
+        cls = [NSString stringWithFormat:@"UI%@",cls];
+    }
     
     id obj              = [[NSClassFromString(cls) alloc] init];
     NSDictionary *style = dic[@"style"];
     [(UIView *)obj setSs_identify:dic[@"id"]];
     if (style) { [(UIView *)obj js_setStyle:style];}
-
+    
     NSArray *components = dic[@"components"];
     if (components && components.count) { [obj setSs_componentsArray:components];}
     return obj;
@@ -147,32 +153,6 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
 {
     [self.jsValue invokeMethod:@"didPressedButton" withArguments:nil];
     [self postEndEditingNotification];
-}
-@end
-
-@implementation UILabel (SSRender)
--(void)js_setStyle:(NSDictionary *)style
-{
-    [super js_setStyle:style];
-    if (style[@"fontSize"])       { self.font                      = [UIFont systemFontOfSize:[style[@"fontSize"] floatValue]];}
-    if (style[@"adjustTextFont"]) { self.adjustsFontSizeToFitWidth = [style[@"adjustTextFont"] floatValue];}
-    if (style[@"text"])           { self.text                      = style[@"text"];}
-    if (style[@"textColor"])      { self.textColor                 = [UIColor ss_colorWithString:style[@"textColor"]];}
-    if (style[@"numberOfLines"]) {
-        self.numberOfLines = [style[@"numberOfLines"] floatValue];
-    }
-    
-    NSString *align = style[@"align"];
-    if (align) {
-        NSDictionary *aligns = @{@"left":   @(NSTextAlignmentLeft),
-                                 @"right":  @(NSTextAlignmentRight),
-                                 @"center": @(NSTextAlignmentCenter)};
-        if ([aligns.allKeys containsObject:align]) { self.textAlignment = [aligns[align] integerValue];}
-    }
-    NSNumber *sizeToFit = style[@"sizeToFit"];
-    if (sizeToFit)           {
-        if([sizeToFit boolValue]) { [self sizeToFit];}
-    }
 }
 @end
 
@@ -308,7 +288,7 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
 {
     UITextView *textView = notification.object;
     if (![self isEqual:textView]) return;
-    //save the text value to the relevant JS Object 
+    //save the text value to the relevant JS Object
     [self.jsValue invokeMethod:@"setText" withArguments:@[textView.text]];
 }
 

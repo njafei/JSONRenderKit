@@ -35,20 +35,28 @@
     SSJSONRequest *request      = [[SSJSONRequest alloc] init];
     request.type                = SSJSONRequestGET;
     obj.jsonRequest             = request;
-    if (indexPath.row==0) {
-        request.url=@"http://127.0.0.1:5000/demo/todo";
-    }
-    else if (indexPath.row==1) {
-        request.url=@"http://127.0.0.1:5000/demo/app";
-    }
-    else if (indexPath.row==2) {
-        request.url=@"http://127.0.0.1:5000/demo/translation";
-    }
-    else if (indexPath.row==3) {
-        request.url=@"http://127.0.0.1:5000/demo/newApi";
-    }
-    else if (indexPath.row == 4){
-        request.url=@"http://127.0.0.1:5000/demo/askList";
+    
+    switch (indexPath.row) {
+        case 0:
+            request.url=@"http://127.0.0.1:5000/demo/todo";
+            break;
+        case 1:
+            request.url=@"http://127.0.0.1:5000/demo/app";
+            break;
+        case 2:
+            request.url=@"http://127.0.0.1:5000/demo/translation";
+            break;
+        case 3:
+            request.url=@"http://127.0.0.1:5000/demo/newApi";
+            break;
+        case 4:
+            request.url=@"http://127.0.0.1:5000/demo/askList";
+            break;
+        case 5:
+            request.url=@"http://127.0.0.1:5000/baseComponentTest/Text";
+            break;
+        default:
+            break;
     }
     [self.navigationController pushViewController:obj animated:YES];
 }

@@ -41,7 +41,7 @@
         	"item":[
         		{
         			"id":"fixLabel",
-        			"type":"Label",
+        			"type":"Text",
         			"style":{
         				"position":"`{{13,8},{${UI.screenW-13},20}}`",
         				"fontSize":12,
@@ -50,7 +50,7 @@
         		},
         		{
         			"id":"descLabel",
-        			"type":"Label",
+        			"type":"Text",
         			"style":{
         				"position":"`{{13,30},{${UI.screenW-13},20}}`",
         				"fontSize":14,
