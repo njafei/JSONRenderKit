@@ -174,8 +174,8 @@ SSBaseRenderController *_currentRenderController = nil;
         _reloadButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 80, 10, 40, 40)];
         _reloadButton.titleLabel.font = [UIFont systemFontOfSize:12];
         _reloadButton.layer.cornerRadius = 20;
-        [_reloadButton setTitle:@"reload" forState:UIControlStateNormal];
-        [_reloadButton setBackgroundColor:[UIColor greenColor]];
+        [_reloadButton setTitle:@"Reload" forState:UIControlStateNormal];
+        [_reloadButton setBackgroundColor:[UIColor ss_colorWithString:@"#2cbb47"]];
         [_reloadButton addTarget:self action:@selector(reloadJson) forControlEvents:UIControlEventTouchDown];
         [self.view addSubview:_reloadButton];
     }

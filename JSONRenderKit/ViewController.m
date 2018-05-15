@@ -36,19 +36,19 @@
     request.type                = SSJSONRequestGET;
     obj.jsonRequest             = request;
     if (indexPath.row==0) {
-        request.url=@"http://127.0.0.1:5000/todo";
+        request.url=@"http://127.0.0.1:5000/demo/todo";
     }
     else if (indexPath.row==1) {
-        request.url=@"http://127.0.0.1:5000/appjson";
+        request.url=@"http://127.0.0.1:5000/demo/app";
     }
     else if (indexPath.row==2) {
-        request.url=@"http://127.0.0.1:5000/trans";
+        request.url=@"http://127.0.0.1:5000/demo/translation";
     }
     else if (indexPath.row==3) {
-        request.url=@"http://127.0.0.1:5000/newApi";
+        request.url=@"http://127.0.0.1:5000/demo/newApi";
     }
     else if (indexPath.row == 4){
-        request.url=@"http://127.0.0.1:5000/askList";
+        request.url=@"http://127.0.0.1:5000/demo/askList";
     }
     [self.navigationController pushViewController:obj animated:YES];
 }

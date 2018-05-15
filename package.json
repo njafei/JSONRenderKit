@@ -1,0 +1,19 @@
+{
+  "name": "jsonrenderkit",
+  "version": "1.0.0",
+  "description": "![](http://ou3yprhbt.bkt.clouddn.com/JSONRenderKitBanner.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njafei/JSONRenderKit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/njafei/JSONRenderKit/issues"
+  },
+  "homepage": "https://github.com/njafei/JSONRenderKit#readme"
+}
