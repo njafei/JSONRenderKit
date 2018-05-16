@@ -1,3 +1,7 @@
+# View
+View是最基本的UI组件。
+
+```
 {
     "controller":{
         "title":"View"
@@ -37,3 +41,17 @@
         },
     ],
 }
+```
+
+# 截图
+
+![](http://on0hv7n2x.bkt.clouddn.com/JsonRenderKit:Component:View.png)
+
+# 属性
+
+* position `frme`
+* borderWidth `number` 边框宽度
+* backgroundColor `color` 背景颜色
+* borderRadius `number` 边框圆角
+* borderColor `color` 边框颜色
+* opacity `number` 透明度
