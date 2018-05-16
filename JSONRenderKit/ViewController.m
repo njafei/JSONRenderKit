@@ -11,7 +11,10 @@
 #import "SSBaseRenderController.h"
 #import "CXMacros.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 @end
 
 @implementation ViewController
@@ -25,9 +28,39 @@
     self.navigationController.navigationBar.tintColor    = [UIColor whiteColor];
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    self.tableView.tableFooterView=[UIView new];
+    
+    [self setUpTableView];
+    
+    self.dataSource = [NSMutableArray arrayWithArray:@[@{@"url": @"http://127.0.0.1:5000/demo/todo",@"title":@"todo"},
+                                                       @{@"url":@"http://127.0.0.1:5000/demo/app",@"title":@"app"},
+                                                       @{@"url":@"http://127.0.0.1:5000/demo/translation",@"title":@"translation"},
+                                                       @{@"url":@"http://127.0.0.1:5000/demo/newApi",@"title":@"newApi"},
+                                                       @{@"url":@"http://127.0.0.1:5000/demo/askList",@"title":@"问大家"},
+                                                       @{@"url":@"http://127.0.0.1:5000/baseComponentTest/Text",@"title":@"Text"},
+                                                       @{@"url":@"http://127.0.0.1:5000/baseComponentTest/View",@"title":@"View"}]];
 }
 
+- (void)setUpTableView
+{
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    
+//    CGFloat navHeight = self.navigationController.navigationBar.bounds.size.height;
+}
+
+#pragma mark - tableView dataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = [self.dataSource[indexPath.row] valueForKey:@"title"];
+    return cell;
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -36,28 +69,10 @@
     request.type                = SSJSONRequestGET;
     obj.jsonRequest             = request;
     
-    switch (indexPath.row) {
-        case 0:
-            request.url=@"http://127.0.0.1:5000/demo/todo";
-            break;
-        case 1:
-            request.url=@"http://127.0.0.1:5000/demo/app";
-            break;
-        case 2:
-            request.url=@"http://127.0.0.1:5000/demo/translation";
-            break;
-        case 3:
-            request.url=@"http://127.0.0.1:5000/demo/newApi";
-            break;
-        case 4:
-            request.url=@"http://127.0.0.1:5000/demo/askList";
-            break;
-        case 5:
-            request.url=@"http://127.0.0.1:5000/baseComponentTest/Text";
-            break;
-        default:
-            break;
+    if (self.dataSource.count >= indexPath.row){
+        request.url = [self.dataSource[indexPath.row] valueForKey:@"url"];
     }
+    
     [self.navigationController pushViewController:obj animated:YES];
 }
 @end

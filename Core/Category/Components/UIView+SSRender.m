@@ -22,6 +22,7 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
 
 @implementation UIView (SSRender)
 
+//处理js的类和NSObject的对应关系
 +(instancetype)ss_viewWithComponentDic:(NSDictionary *)dic
 {
     NSString *cls = dic[@"type"];
@@ -29,8 +30,9 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
         cls = @"SSListView";
     } else if ([cls isEqualToString:@"Text"]){
         cls = @"UILabel";
-    }
-    else {
+    } else if ([cls isEqualToString:@"View"]){
+        cls = @"UIView";
+    } else {
         cls = [NSString stringWithFormat:@"UI%@",cls];
     }
     
@@ -95,12 +97,15 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
 {
     NSAssert([style isKindOfClass:[NSDictionary class]], @"js_setStyle: the style is not a NSDictionary");
     
-    if(style[@"cornerRadius"])    { self.layer.cornerRadius = [style[@"cornerRadius"] floatValue];}
+    if(style[@"borderRadius"])    { self.layer.cornerRadius = [style[@"borderRadius"] floatValue];}
     if(style[@"borderWidth"])     { self.layer.borderWidth  = [style[@"borderWidth"] floatValue];}
     if(style[@"hidden"])          { self.hidden             = [style[@"hidden"] boolValue];}
     if(style[@"borderColor"])     { self.layer.borderColor  = [UIColor ss_colorWithString:style[@"borderColor"]].CGColor;}
     if(style[@"backgroundColor"]) { self.backgroundColor    = [UIColor ss_colorWithString:style[@"backgroundColor"]];}
     if(style[@"position"])        { self.frame              = CGRectFromString(style[@"position"]);}
+    if(style[@"opacity"]){
+        self.layer.opacity = [style[@"opacity"] floatValue];
+    }
     NSString *direction           = style[@"separatorDirection"];
     NSString *separatorColor      = style[@"separatorColor"];
     NSString *separatorHeight     = style[@"separatorHeight"];

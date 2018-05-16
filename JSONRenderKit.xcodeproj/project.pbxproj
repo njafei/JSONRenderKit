@@ -15,9 +15,7 @@
 		9BF92A751F09CCCA00E838CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF92A741F09CCCA00E838CD /* main.m */; };
 		9BF92A781F09CCCA00E838CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF92A771F09CCCA00E838CD /* AppDelegate.m */; };
 		9BF92A7B1F09CCCA00E838CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF92A7A1F09CCCA00E838CD /* ViewController.m */; };
-		9BF92A7E1F09CCCA00E838CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BF92A7C1F09CCCA00E838CD /* Main.storyboard */; };
 		9BF92A801F09CCCA00E838CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BF92A7F1F09CCCA00E838CD /* Assets.xcassets */; };
-		9BF92A831F09CCCA00E838CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BF92A811F09CCCA00E838CD /* LaunchScreen.storyboard */; };
 		9BF92AB21F09D16500E838CD /* NSObject+SSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF92AA61F09D16500E838CD /* NSObject+SSRender.m */; };
 		9BF92AB41F09D16500E838CD /* UIColor+SSRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF92AAA1F09D16500E838CD /* UIColor+SSRender.m */; };
 		9BF92AB71F09D16500E838CD /* SSJSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF92AB11F09D16500E838CD /* SSJSContext.m */; };
@@ -45,9 +43,7 @@
 		9BF92A771F09CCCA00E838CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9BF92A791F09CCCA00E838CD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9BF92A7A1F09CCCA00E838CD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9BF92A7D1F09CCCA00E838CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9BF92A7F1F09CCCA00E838CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9BF92A821F09CCCA00E838CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BF92A841F09CCCA00E838CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BF92AA51F09D16500E838CD /* NSObject+SSRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SSRender.h"; sourceTree = "<group>"; };
 		9BF92AA61F09D16500E838CD /* NSObject+SSRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SSRender.m"; sourceTree = "<group>"; };
@@ -126,9 +122,7 @@
 				9BF92A771F09CCCA00E838CD /* AppDelegate.m */,
 				9BF92A791F09CCCA00E838CD /* ViewController.h */,
 				9BF92A7A1F09CCCA00E838CD /* ViewController.m */,
-				9BF92A7C1F09CCCA00E838CD /* Main.storyboard */,
 				9BF92A7F1F09CCCA00E838CD /* Assets.xcassets */,
-				9BF92A811F09CCCA00E838CD /* LaunchScreen.storyboard */,
 				9BF92A841F09CCCA00E838CD /* Info.plist */,
 				9BF92A731F09CCCA00E838CD /* Supporting Files */,
 			);
@@ -156,14 +150,11 @@
 		9BF92AA41F09D16500E838CD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A5BB723120AC246000BBA269 /* Components */,
 				9BEE41BF1F30CAFF00721C1B /* UIView+SSeparator.h */,
 				9BEE41C01F30CAFF00721C1B /* UIView+SSeparator.m */,
 				9BF92AA51F09D16500E838CD /* NSObject+SSRender.h */,
 				9BF92AA61F09D16500E838CD /* NSObject+SSRender.m */,
-				9BF92ABF1F09D4D600E838CD /* UIView+SSRender.h */,
-				9BF92AC01F09D4D600E838CD /* UIView+SSRender.m */,
-				A5BB722820AAAFFE00BBA269 /* UILabel+SSRender.h */,
-				A5BB722920AAAFFE00BBA269 /* UILabel+SSRender.m */,
 				9BF92AA91F09D16500E838CD /* UIColor+SSRender.h */,
 				9BF92AAA1F09D16500E838CD /* UIColor+SSRender.m */,
 			);
@@ -196,6 +187,17 @@
 				9BF92AD01F09EEE500E838CD /* SSListViewCell.m */,
 			);
 			path = SSListView;
+			sourceTree = "<group>";
+		};
+		A5BB723120AC246000BBA269 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A5BB722820AAAFFE00BBA269 /* UILabel+SSRender.h */,
+				A5BB722920AAAFFE00BBA269 /* UILabel+SSRender.m */,
+				9BF92ABF1F09D4D600E838CD /* UIView+SSRender.h */,
+				9BF92AC01F09D4D600E838CD /* UIView+SSRender.m */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		BC47EBE06AFB448189A1E82B /* Frameworks */ = {
@@ -269,10 +271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B6C2B151F590DA2006F2215 /* SSTool.js in Resources */,
-				9BF92A831F09CCCA00E838CD /* LaunchScreen.storyboard in Resources */,
 				9BF92A801F09CCCA00E838CD /* Assets.xcassets in Resources */,
 				9B6C2B161F590DA2006F2215 /* SSUIKit.js in Resources */,
-				9BF92A7E1F09CCCA00E838CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,25 +361,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9BF92A7C1F09CCCA00E838CD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9BF92A7D1F09CCCA00E838CD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9BF92A811F09CCCA00E838CD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9BF92A821F09CCCA00E838CD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9BF92A851F09CCCA00E838CD /* Debug */ = {
