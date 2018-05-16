@@ -43,7 +43,7 @@ SSBaseRenderController *_currentRenderController = nil;
 #pragma mark - life circle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title                                = @"详情";
+    self.title                                = @"";
     self.view.backgroundColor                 = [UIColor whiteColor];
     self.jsContext                            = [SSJSContext context];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -144,7 +144,7 @@ SSBaseRenderController *_currentRenderController = nil;
 {
     _config = config;
     if (_config == nil) return;
-    self.title = _config[@"title"]?:@"详情";
+    self.title = _config[@"title"]?:@"";
     NSString *bgColor = _config[@"backgroundColor"];
     if (bgColor) { self.view.backgroundColor=[UIColor ss_colorWithString:bgColor];}
     
