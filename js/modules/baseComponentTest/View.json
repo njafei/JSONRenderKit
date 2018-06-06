@@ -7,16 +7,25 @@
             "type":"View",
             "style":{
                 "position":"`{{6,6},{${UI.screenW-80},36}}`",
-                "backgroundColor":"#FF6666",
-            },
+                "backgroundColor":"#FF6666"
+            }
         },
         {
             "type":"View",
             "style":{
                 "position":"`{{6,50},{${UI.screenW-80},36}}`",
                 "backgroundColor":"#009999",
-                "borderRadius":20,
+                "borderRadius":20
             },
+            "components":[
+                {
+                    "type":"View",
+                    "style":{
+                        "position":"`{{10,6},{20,20}}`",
+                        "backgroundColor":"#FF6666"
+                     }
+                 }
+            ]
         },
         {
             "type":"View",
@@ -24,7 +33,7 @@
                 "position":"`{{6,100},{${UI.screenW-80},36}}`",
                 "backgroundColor":"#FFCCCC",
                 "borderWidth": 1,
-                "borderColor": "#66CCCC",
+                "borderColor": "#66CCCC"
             }
         },
         {
@@ -32,8 +41,8 @@
             "style":{
                 "position":"`{{6,150},{${UI.screenW-80},36}}`",
                 "backgroundColor":"#FFCCCC",
-                "opacity": 0.5,
+                "opacity": 0.5
             }
-        },
-    ],
+        }
+    ]
 }

@@ -305,9 +305,22 @@ class Controller {
         this.components = json['components'];
     }
 
+    viewWillMount(){
+        if(this.lifeCircle && this.lifeCircle.viewWillMount){
+            this.lifeCircle.viewWillMount.runWithArgs();
+        }
+    }
+    
+    
     viewDidMount(){
         if(this.lifeCircle && this.lifeCircle.viewDidMount){
             this.lifeCircle.viewDidMount.runWithArgs();
+        }
+    }
+    
+    viewWillUnmount(){
+        if(this.lifeCircle && this.lifeCircle.viewWillUnmount){
+            this.lifeCircle.viewWillUnmount.runWithArgs();
         }
     }
 

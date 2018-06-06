@@ -50,6 +50,16 @@ SSBaseRenderController *_currentRenderController = nil;
     [self startRender];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.jsContext evaluateScript:@"controller.viewWillMount()"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.jsContext evaluateScript: @"controller.viewWillUnmount()"];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -79,6 +89,9 @@ SSBaseRenderController *_currentRenderController = nil;
     [self.view bringSubviewToFront:self.reloadButton];
     [self.view bringSubviewToFront:self.indicatorView];
     self.config  = json[@"controller"];
+    
+    [self.jsContext evaluateScript:@"controller.viewWillMount()"];
+
     [self.jsContext evaluateScript:@"controller.viewDidMount()"];
 }
 
@@ -94,6 +107,7 @@ SSBaseRenderController *_currentRenderController = nil;
     if (!(self.jsonRequest.url && [self.jsonRequest.url hasPrefix:@"http"])) return;
     [self showIndicator];
     [SSJSContext setCurrentContext:self.jsContext];
+    
     if (self.jsonRequest.type == SSJSONRequestGET) {
         [JSONSpider getWithURLString:self.jsonRequest.url parameters:self.jsonRequest.parameters success:^(id responseObject) {
             [self hideIndicator];
