@@ -37,7 +37,8 @@
                                                        @{@"url":@"http://127.0.0.1:5000/demo/newApi",@"title":@"newApi"},
                                                        @{@"url":@"http://127.0.0.1:5000/demo/askList",@"title":@"问大家"},
                                                        @{@"url":@"http://127.0.0.1:5000/baseComponentTest/Text",@"title":@"Text"},
-                                                       @{@"url":@"http://127.0.0.1:5000/baseComponentTest/View",@"title":@"View"}]];
+                                                       @{@"url":@"http://127.0.0.1:5000/baseComponentTest/View",@"title":@"View"},
+                                                       @{@"url":@"http://127.0.0.1:5000/baseComponentTest/Image",@"title":@"Image"}]];
 }
 
 - (void)setUpTableView

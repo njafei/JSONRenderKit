@@ -32,6 +32,8 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
         cls = @"UILabel";
     } else if ([cls isEqualToString:@"View"]){
         cls = @"UIView";
+    } else if ([cls isEqualToString:@"Image"]){
+        cls = @"UIImageView";
     } else {
         cls = [NSString stringWithFormat:@"UI%@",cls];
     }
@@ -185,12 +187,20 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
                               @"aspectfill": @(2)};
         if ([modes.allKeys containsObject:mode]) { self.contentMode=[modes[mode] integerValue];}
     }
-    NSString *image=style[@"image"];
+    NSString *image=style[@"url"];
     if (image){
         [self sd_setImageWithURL:[NSURL URLWithString:image] completed:nil];
         [self sd_setShowActivityIndicatorView:YES];
         [self sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    } else {
+        NSString *localImage = style[@"uri"];
+        if (localImage){
+            [self setImage:[UIImage imageNamed:localImage]];
+        }
     }
+    
+
+
 }
 @end
 

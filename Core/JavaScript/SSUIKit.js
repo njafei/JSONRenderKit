@@ -152,7 +152,7 @@ class Text extends View {
     }
 }
 
-class ImageView extends View {
+class Image extends View {
     constructor() {
         super();
         this.ocClsName = 'UIImageView';
