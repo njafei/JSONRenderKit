@@ -176,33 +176,6 @@ static NSString *SSEndEditingNotification = @"SSEndEditingNotification";
 }
 @end
 
-@implementation UIImageView (SSRender)
--(void)js_setStyle:(NSDictionary *)style
-{
-    [super js_setStyle:style];
-    NSString *mode=style[@"imageMode"];
-    if (mode){
-        NSDictionary *modes=@{@"fill":       @(0),
-                              @"aspectfit":  @(1),
-                              @"aspectfill": @(2)};
-        if ([modes.allKeys containsObject:mode]) { self.contentMode=[modes[mode] integerValue];}
-    }
-    NSString *image=style[@"url"];
-    if (image){
-        [self sd_setImageWithURL:[NSURL URLWithString:image] completed:nil];
-        [self sd_setShowActivityIndicatorView:YES];
-        [self sd_setIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    } else {
-        NSString *localImage = style[@"uri"];
-        if (localImage){
-            [self setImage:[UIImage imageNamed:localImage]];
-        }
-    }
-    
-
-
-}
-@end
 
 @implementation UITextField (SSRender)
 
