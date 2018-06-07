@@ -404,9 +404,12 @@ const renderWithJSON = (json,ocWrapperViewPointer) =>{
     // recover the json ,replace the variable value with real value
     recoverJSON(json);
     controller.wrapperView.setOCPointer(ocWrapperViewPointer);
+    //准备开始viewWillMount
+    controller.viewWillMount();
     // 进行配置
     controller.initWithJSON(json);
     controller.produceSubviews();
+    controller.viewDidMount();
     // 渲染完毕
     oc_renderFinish();
 }

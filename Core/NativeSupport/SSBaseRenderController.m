@@ -50,11 +50,6 @@ SSBaseRenderController *_currentRenderController = nil;
     [self startRender];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.jsContext evaluateScript:@"controller.viewWillMount()"];
-}
-
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.jsContext evaluateScript: @"controller.viewWillUnmount()"];
@@ -83,16 +78,13 @@ SSBaseRenderController *_currentRenderController = nil;
 }
 
 -(void)didReceiveRenderJSON:(NSDictionary *)json{
+    
     UIView *wrapperView  = [self.jsContext renderWithJSON:json];
     [self.view addSubview:wrapperView];
     [self.view addSubview:self.reloadButton];
     [self.view bringSubviewToFront:self.reloadButton];
     [self.view bringSubviewToFront:self.indicatorView];
     self.config  = json[@"controller"];
-    
-    [self.jsContext evaluateScript:@"controller.viewWillMount()"];
-
-    [self.jsContext evaluateScript:@"controller.viewDidMount()"];
 }
 
 -(void)startRenderWithJSON:(NSDictionary *)json{
